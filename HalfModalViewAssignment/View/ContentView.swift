@@ -30,6 +30,8 @@ struct ContentView: View {
                             .onTapGesture {
                                 showModal = true
                                 choose.name = service.name
+                                choose.location = service.location
+                                choose.category = service.category
                                 
                             }
                         

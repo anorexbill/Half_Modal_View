@@ -69,7 +69,14 @@ struct ModalView: View {
                         .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                         .padding(.bottom, 10)
                     
-                    Text(result.name)
+                    Text(result.category)
+                        .foregroundColor(.black)
+                        .font(.system(size: 20, weight: .regular))
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                        .padding(.bottom, 10)
+                    
+                    Text(result.location)
                         .foregroundColor(.black)
                         .font(.system(size: 20, weight: .bold))
                 }
