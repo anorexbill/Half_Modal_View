@@ -26,8 +26,7 @@ struct ModalView: View {
         let res = Double((curlHeight - minHeight) / (maxHeight - minHeight))
         return max(0, min(1, res))
     }
-    
-    
+   
     var body: some View {
         ZStack(alignment: .bottom) {
             if isShowing {
@@ -62,25 +61,38 @@ struct ModalView: View {
             
             ZStack{
                 VStack{
-                    Text(result.name)
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                        .padding(.bottom, 10)
                     
-                    Text(result.category)
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .regular))
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                        .padding(.bottom, 10)
+                    HStack{
+                        
+                        Image(result.category)
+                            .resizable()
+                            .frame(width: 200, height: 200, alignment: .leading)
+                            .cornerRadius(6)
+                        
+                        VStack{
+                            Text(result.name)
+                                .foregroundColor(.black)
+                                .font(.system(size: 20, weight: .bold))
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                                .padding(.bottom, 10)
+                            
+                            Text(result.category)
+                                .foregroundColor(.black)
+                                .font(.system(size: 20, weight: .regular))
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                                .padding(.bottom, 10)
+                            
+                            Text(result.location)
+                                .foregroundColor(.black)
+                                .font(.system(size: 20, weight: .regular))
+                        }
+                        
+                    }
                     
-                    Text(result.location)
-                        .foregroundColor(.black)
-                        .font(.system(size: 20, weight: .bold))
                 }
-                .padding(.horizontal, 30)
+                .padding(.horizontal)
             }
             .frame(maxHeight: .infinity)
             .padding(.bottom, 35)
