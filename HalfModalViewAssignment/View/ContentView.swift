@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State private var showModal = false
     @State var choose: Service = Service(name: "", category: "", location: "")
-    @ObservedObject var modalViewModel = ModalViewModel()
+    @StateObject var modalViewModel = ModalViewModel()
     
     
     var body: some View {
