@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State private var showModal = false
     @State var choose: Service = Service(name: "", category: "", location: "")
+    @ObservedObject var modalViewModel = ModalViewModel()
     
     
     var body: some View {
@@ -25,7 +26,7 @@ struct ContentView: View {
             ScrollView(.vertical, showsIndicators: false){
                 
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 2), spacing: 10) {
-                    ForEach(searchServices){ service in
+                    ForEach(modalViewModel.searchServices){ service in
                         ServiceCardView(service: service)
                             .onTapGesture {
                                 showModal = true

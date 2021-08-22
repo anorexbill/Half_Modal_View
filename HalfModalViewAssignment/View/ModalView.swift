@@ -11,6 +11,7 @@ struct ModalView: View {
     
     var result: Service
     
+    
     @Binding var isShowing: Bool
     @State private var isDragging = false
     
